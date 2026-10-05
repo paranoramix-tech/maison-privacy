@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison — Politique de confidentialité</title>
+<style>
+  :root { --bg:#EEF0F3; --surface:#FFFFFF; --text:#141A22; --muted:#5B6573; --primary:#2449D8; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0F141B; --surface:#1A222D; --text:#F2F4F7; --muted:#9AA5B4; --primary:#6E8BFF; } }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui, sans-serif; }
+  main { max-width:720px; margin:32px auto; padding:24px 20px; background:var(--surface); border-radius:20px; }
+  h1 { font-size:30px; line-height:1.2; margin-top:0; }
+  h2 { font-size:19px; margin-top:28px; }
+  p, li { color:var(--text); } .muted { color:var(--muted); font-size:14px; }
+  a { color:var(--primary); }
+  @media (max-width:760px) { main { margin:0; border-radius:0; } }
+</style>
+</head>
+<body>
+<main>
+<h1>Politique de confidentialité de l'application Maison</h1>
+<p class="muted">Dernière mise à jour : 5 octobre 2026</p>
+
+<p>Maison (<code>fr.weavit.maison</code>) est une application Android privée qui pilote le serveur Home Assistant d'un foyer : alarme, ouvertures, caméras, énergie et météo. Elle est réservée aux membres de ce foyer.</p>
+
+<h2>Aucune collecte par le développeur</h2>
+<p>L'application n'envoie aucune donnée au développeur ni à un tiers. Elle ne contient ni publicité, ni outil de statistiques, ni suivi, ni rapport de plantage automatique.</p>
+
+<h2>Communication avec votre serveur uniquement</h2>
+<p>L'application communique seulement avec le serveur Home Assistant (et Frigate pour les caméras) dont l'adresse est saisie dans l'application. Les états des équipements, les images des caméras et les commandes transitent directement entre le téléphone et ce serveur.</p>
+<p>À la connexion, l'identifiant et le mot de passe Home Assistant servent uniquement à créer un jeton d'accès sur le serveur ; le mot de passe n'est jamais conservé. Le nom de ce jeton contient le modèle du téléphone, pour le reconnaître dans Home Assistant.</p>
+
+<h2>Données stockées sur l'appareil</h2>
+<ul>
+  <li>l'adresse du serveur Home Assistant ;</li>
+  <li>le jeton d'accès, chiffré par le Keystore Android ;</li>
+  <li>les préférences d'affichage (thème).</li>
+</ul>
+<p>Ces données restent sur le téléphone et sont supprimées avec l'application. Le jeton peut aussi être révoqué à tout moment depuis le profil Home Assistant.</p>
+
+<h2>Codes d'alarme</h2>
+<p>Les codes d'alarme saisis sont transmis au serveur Home Assistant pour armer ou désarmer. Ils ne sont ni enregistrés ni journalisés par l'application.</p>
+
+<h2>Contact</h2>
+<p>Pour toute question : <a href="https://github.com/paranoramix-tech/maison-privacy/issues">ouvrir une demande sur GitHub</a>.</p>
+</main>
+</body>
+</html>
