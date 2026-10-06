@@ -19,17 +19,24 @@
 <body>
 <main>
 <h1>Politique de confidentialité de l'application Maison</h1>
-<p class="muted">Dernière mise à jour : 5 octobre 2026</p>
+<p class="muted">Dernière mise à jour : 6 octobre 2026</p>
 
 <p>Maison (<code>fr.weavit.maison</code>) est une application Android privée qui pilote le serveur Home Assistant d'un foyer : alarme, ouvertures, caméras, énergie et météo. Elle est réservée aux membres de ce foyer.</p>
 
 <h2>Aucune collecte par le développeur</h2>
-<p>L'application n'envoie aucune donnée au développeur ni à un tiers. Elle ne contient ni publicité, ni outil de statistiques, ni suivi, ni rapport de plantage automatique.</p>
+<p>L'application n'envoie aucune donnée au développeur. Elle ne contient ni publicité, ni outil de statistiques, ni suivi, ni rapport de plantage automatique. Seule la carte météo fait appel à deux services publics, décrits plus bas.</p>
 
 <h2>Communication avec votre serveur uniquement</h2>
-<p>L'application communique seulement avec le serveur Home Assistant (et Frigate pour les caméras) dont l'adresse est saisie dans l'application. Les états des équipements, les images des caméras et les commandes transitent directement entre le téléphone et ce serveur.</p>
+<p>En dehors de la carte météo, l'application communique seulement avec le serveur Home Assistant dont l'adresse est saisie dans l'application ; les caméras passent elles aussi par ce serveur. Les états des équipements, les images des caméras et les commandes transitent directement entre le téléphone et ce serveur.</p>
 <p>À la connexion, l'identifiant et le mot de passe Home Assistant servent uniquement à créer un jeton d'accès sur le serveur ; le mot de passe n'est jamais conservé. Le nom de ce jeton contient le modèle du téléphone, pour le reconnaître dans Home Assistant.</p>
 
+<h2>Carte météo</h2>
+<p>Quand l'onglet Carte de l'écran Météo est affiché, l'application interroge directement deux services publics, sans compte ni clé :</p>
+<ul>
+  <li><a href="https://open-meteo.com/">Open-Meteo</a>, pour les prévisions : la requête contient les coordonnées des points de la zone affichée (autour de la maison, ou là où la carte a été déplacée) ;</li>
+  <li>les serveurs de tuiles d'<a href="https://www.openstreetmap.org/">OpenStreetMap</a>, pour le fond de carte : la requête désigne les tuiles affichées.</li>
+</ul>
+<p>Comme pour toute requête sur Internet, ces services voient l'adresse IP du téléphone. Aucune autre donnée ne leur est transmise : ni jeton, ni identifiant, ni information sur les équipements de la maison. Les tuiles sont gardées en cache sur le téléphone.</p>
 <h2>Données stockées sur l'appareil</h2>
 <ul>
   <li>l'adresse du serveur Home Assistant ;</li>
