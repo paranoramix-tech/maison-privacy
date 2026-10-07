@@ -19,12 +19,12 @@
 <body>
 <main>
 <h1>Politique de confidentialité de l'application Maison</h1>
-<p class="muted">Dernière mise à jour : 6 octobre 2026</p>
+<p class="muted">Dernière mise à jour : 7 octobre 2026</p>
 
 <p>Maison (<code>fr.weavit.maison</code>) est une application Android privée qui pilote le serveur Home Assistant d'un foyer : alarme, ouvertures, caméras, énergie et météo. Elle est réservée aux membres de ce foyer.</p>
 
 <h2>Aucune collecte par le développeur</h2>
-<p>L'application n'envoie aucune donnée au développeur. Elle ne contient ni publicité, ni outil de statistiques, ni suivi, ni rapport de plantage automatique. Seules la carte météo et les notifications font appel à des services extérieurs, décrits plus bas.</p>
+<p>L'application n'envoie aucune donnée au développeur. Elle ne contient ni publicité, ni outil de statistiques, ni suivi, ni rapport de plantage automatique. Seules la carte météo, les notifications et la détection de présence font appel à des services extérieurs, décrits plus bas.</p>
 
 <h2>Communication avec votre serveur uniquement</h2>
 <p>En dehors de la carte météo et de la réception des notifications, l'application communique seulement avec le serveur Home Assistant dont l'adresse est saisie dans l'application ; les caméras passent elles aussi par ce serveur. Les états des équipements, les images des caméras et les commandes transitent directement entre le téléphone et ce serveur.</p>
@@ -42,11 +42,17 @@
 <p>Chaque message contient seulement le type d'alerte et son texte, par exemple « Intrusion détectée — Porte d'entrée » ou « Fenêtre restée ouverte — Salon », ainsi que l'heure. Google transporte ces messages jusqu'au téléphone. Les images des caméras ne passent pas par Google : l'application les charge directement depuis le serveur Home Assistant. Aucun jeton, aucune adresse de serveur et aucune position ne sont transmis à Firebase.</p>
 <p>Firebase est utilisé sans Analytics ni aucun autre outil de statistiques.</p>
 
+<h2>Présence</h2>
+<p>Ce partage est désactivé par défaut. Si vous l'activez dans les réglages, l'application demande l'accès à la localisation précise, y compris en arrière-plan (« Toujours autoriser »). Elle s'en sert uniquement pour savoir quand le téléphone entre dans la zone « Maison » définie dans Home Assistant ou en sort, à l'aide du géorepérage des services Google Play, même application fermée.</p>
+<p>À chaque entrée ou sortie, l'application envoie à votre serveur Home Assistant le seul état « à la maison » ou « absent ». Votre position n'est transmise ni à ce serveur ni au développeur, et l'application ne garde aucun historique de vos déplacements. Pour s'enregistrer auprès du serveur, l'application lui communique le modèle et le fabricant du téléphone et la version d'Android. Le calcul de la position et du géorepérage est assuré par les services de localisation Google Play du téléphone, selon les règles de confidentialité de Google.</p>
+<p>Désactiver le partage, ou retirer l'autorisation dans les réglages d'Android, arrête la détection.</p>
+
 <h2>Données stockées sur l'appareil</h2>
 <ul>
   <li>l'adresse du serveur Home Assistant ;</li>
   <li>le jeton d'accès, chiffré par le Keystore Android ;</li>
-  <li>les préférences d'affichage (thème) et de notification.</li>
+  <li>les préférences d'affichage (thème) et de notification ;</li>
+  <li>si la présence est partagée : la position et le rayon de la zone « Maison », la dernière présence envoyée et l'adresse d'envoi vers le serveur (chiffrée par le Keystore Android).</li>
 </ul>
 <p>Ces données restent sur le téléphone et sont supprimées avec l'application. Le jeton peut aussi être révoqué à tout moment depuis le profil Home Assistant.</p>
 
