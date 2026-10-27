@@ -19,7 +19,7 @@
 <body>
 <main>
 <h1>Politique de confidentialité de l'application Maison</h1>
-<p class="muted">Dernière mise à jour : 7 octobre 2026</p>
+<p class="muted">Dernière mise à jour : 27 octobre 2026</p>
 
 <p>Maison (<code>fr.weavit.maison</code>) est une application Android privée qui pilote le serveur Home Assistant d'un foyer : alarme, ouvertures, caméras, énergie et météo. Elle est réservée aux membres de ce foyer.</p>
 
@@ -47,14 +47,18 @@
 <p>À chaque entrée ou sortie, l'application envoie à votre serveur Home Assistant le seul état « à la maison » ou « absent ». Votre position n'est transmise ni à ce serveur ni au développeur, et l'application ne garde aucun historique de vos déplacements. Pour s'enregistrer auprès du serveur, l'application lui communique le modèle et le fabricant du téléphone et la version d'Android. Le calcul de la position et du géorepérage est assuré par les services de localisation Google Play du téléphone, selon les règles de confidentialité de Google.</p>
 <p>Désactiver le partage, ou retirer l'autorisation dans les réglages d'Android, arrête la détection.</p>
 
+<h2>Position de la voiture (version Android Automotive OS)</h2>
+<p>Cette section ne concerne que la version installée directement par le système Android de la voiture elle-même (Android Automotive OS), distincte de l'application installée sur le téléphone. Tant que la voiture est sous contact, l'application envoie, environ une fois par minute, la position GPS réelle de la voiture à votre serveur Home Assistant, qui lui attribue un traceur propre à la voiture (distinct de celui du téléphone). Contrairement au partage de présence du téléphone décrit ci-dessus, votre position n'est pas réduite à « à la maison »/« absent » : les coordonnées elles-mêmes quittent l'appareil.</p>
+<p>Cet envoi démarre automatiquement au démarrage du système de la voiture, sans réglage à activer dans l'application : il n'existe pas d'écran de réglages sur cette version. L'autorisation de localisation s'accorde depuis les réglages système d'Android Automotive OS, comme pour toute application. Aucune donnée de position n'est transmise au développeur ; elle ne va qu'à votre serveur Home Assistant.</p>
+
 <h2>Données stockées sur l'appareil</h2>
 <ul>
   <li>l'adresse du serveur Home Assistant ;</li>
   <li>le jeton d'accès, chiffré par le Keystore Android ;</li>
   <li>les préférences d'affichage (thème) et de notification ;</li>
-  <li>si la présence est partagée : la position et le rayon de la zone « Maison », la dernière présence envoyée et l'adresse d'envoi vers le serveur (chiffrée par le Keystore Android).</li>
+  <li>si la présence est partagée (téléphone), ou sur la version voiture : la position et le rayon de la zone « Maison » (téléphone uniquement), la dernière présence envoyée et l'adresse d'envoi vers le serveur (chiffrée par le Keystore Android).</li>
 </ul>
-<p>Ces données restent sur le téléphone et sont supprimées avec l'application. Le jeton peut aussi être révoqué à tout moment depuis le profil Home Assistant.</p>
+<p>Ces données restent sur l'appareil (téléphone ou voiture) et sont supprimées avec l'application. Le jeton peut aussi être révoqué à tout moment depuis le profil Home Assistant.</p>
 
 <h2>Codes d'alarme</h2>
 <p>Les codes d'alarme saisis sont transmis au serveur Home Assistant pour armer ou désarmer. Ils ne sont ni enregistrés ni journalisés par l'application.</p>
