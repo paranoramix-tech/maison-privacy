@@ -19,7 +19,7 @@
 <body>
 <main>
 <h1>Politique de confidentialité de l'application Maison</h1>
-<p class="muted">Dernière mise à jour : 27 octobre 2026</p>
+<p class="muted">Dernière mise à jour : 31 octobre 2026</p>
 
 <p>Maison (<code>fr.weavit.maison</code>) est une application Android privée qui pilote le serveur Home Assistant d'un foyer : alarme, ouvertures, caméras, énergie et météo. Elle est réservée aux membres de ce foyer.</p>
 
@@ -51,12 +51,17 @@
 <p>Cette section ne concerne que la version installée directement par le système Android de la voiture elle-même (Android Automotive OS), distincte de l'application installée sur le téléphone. Tant que la voiture est sous contact, l'application envoie, environ une fois par minute, la position GPS réelle de la voiture à votre serveur Home Assistant, qui lui attribue un traceur propre à la voiture (distinct de celui du téléphone). Contrairement au partage de présence du téléphone décrit ci-dessus, votre position n'est pas réduite à « à la maison »/« absent » : les coordonnées elles-mêmes quittent l'appareil.</p>
 <p>Cet envoi démarre automatiquement au démarrage du système de la voiture, sans réglage à activer dans l'application : il n'existe pas d'écran de réglages sur cette version. L'autorisation de localisation s'accorde depuis les réglages système d'Android Automotive OS, comme pour toute application. Aucune donnée de position n'est transmise au développeur ; elle ne va qu'à votre serveur Home Assistant.</p>
 
+<h2>Véhicule Bluetooth (version téléphone)</h2>
+<p>Dans l'écran Voitures, vous pouvez déclarer un véhicule en l'associant à un appareil Bluetooth déjà appairé avec le téléphone (l'autoradio de la voiture, par exemple), sans lien avec Home Assistant. Pour proposer la liste des appareils à choisir, l'application lit la liste des appareils Bluetooth appairés sur le téléphone ; elle ne réalise aucun scan des appareils à proximité et ne lit aucune donnée échangée par la connexion Bluetooth elle-même, seulement son état connecté/déconnecté.</p>
+<p>Tant que le téléphone reste connecté à cet appareil, l'application enregistre la position GPS du téléphone pour reconstituer le trajet (tracé, distance, arrêts) affiché dans l'écran Voitures. Cet enregistrement s'arrête à la déconnexion Bluetooth. Ces trajets restent uniquement sur le téléphone : ils ne sont transmis ni à votre serveur Home Assistant, ni au développeur, et sont propres à cet appareil (non partagés entre plusieurs téléphones).</p>
+
 <h2>Données stockées sur l'appareil</h2>
 <ul>
   <li>l'adresse du serveur Home Assistant ;</li>
   <li>le jeton d'accès, chiffré par le Keystore Android ;</li>
   <li>les préférences d'affichage (thème) et de notification ;</li>
-  <li>si la présence est partagée (téléphone), ou sur la version voiture : la position et le rayon de la zone « Maison » (téléphone uniquement), la dernière présence envoyée et l'adresse d'envoi vers le serveur (chiffrée par le Keystore Android).</li>
+  <li>si la présence est partagée (téléphone), ou sur la version voiture : la position et le rayon de la zone « Maison » (téléphone uniquement), la dernière présence envoyée et l'adresse d'envoi vers le serveur (chiffrée par le Keystore Android) ;</li>
+  <li>les véhicules Bluetooth déclarés (nom, adresse de l'appareil appairé) et leurs trajets enregistrés.</li>
 </ul>
 <p>Ces données restent sur l'appareil (téléphone ou voiture) et sont supprimées avec l'application. Le jeton peut aussi être révoqué à tout moment depuis le profil Home Assistant.</p>
 
